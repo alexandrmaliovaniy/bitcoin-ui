@@ -1,0 +1,24 @@
+$CircleSize: 20px;
+$Gap: 6px;
+$CheckSize: $CircleSize - $Gap;
+$Radius: 50%;
+
+
+.Radio {
+  cursor: pointer;
+
+  .Button {
+    width: $CircleSize;
+    height: $CircleSize;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: $Radius;
+
+    .Check {
+      width: $CheckSize;
+      height: $CheckSize;
+      background: #000000;
+      border-radius: $Radius;
+    }
+  }
+}
