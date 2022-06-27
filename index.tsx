@@ -11,11 +11,15 @@ import H2 from "@ui/Typography/Title/H2";
 import H3 from "@ui/Typography/Title/H3";
 import H4 from "@ui/Typography/Title/H4";
 import H5 from "@ui/Typography/Title/H5";
+import Box from "@ui/Layout/Box";
+import Col from "@ui/Layout/Col";
+import Row from "@ui/Layout/Row";
+import RadioButton from "@ui/RadioButton/RadioButton";
+import CheckBox from "@ui/CheckBox/CheckBox";
 
 export {
-	Text,
-	Subtitle,
-	Title,
-	S1, S2, S3, S4, S5,
-	H1, H2, H3, H4, H5
+	Text, Subtitle, Title,
+	S1, S2, S3, S4, S5, H1, H2, H3, H4, H5,
+	Box, Col, Row,
+	RadioButton, CheckBox
 };
