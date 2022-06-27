@@ -1,0 +1,24 @@
+$BoxSize: 20px;
+$Gap: 6px;
+$CheckSize: $BoxSize - $Gap;
+$Radius: 3px;
+
+
+.Box {
+  cursor: pointer;
+
+  .Button {
+    width: $BoxSize;
+    height: $BoxSize;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: $Radius;
+
+    .Check {
+      width: $CheckSize;
+      height: $CheckSize;
+      background: #000000;
+      border-radius: $Radius;
+    }
+  }
+}
