@@ -56,19 +56,34 @@ export namespace IUI {
 	}
 
 
-	interface Control {
-		value: any
+	interface Control<T> extends DirectedBox {
+		value: T | null
+		onMutation?: () => void
 	}
 
-	interface BoolControl extends Control {
-		value: boolean
+	interface UnControl<T> extends DirectedBox {
+		value: T | null
+		onMutation?: (value: T) => void
 	}
 
-
-	export interface RadioButton extends BoolControl, Row {
+	export interface RadioButton extends Control<boolean> {
 	}
 
-	export interface CheckBox extends BoolControl, Row {
+	export interface URadioButton extends UnControl<boolean> {
+	}
+
+	export interface CheckBox extends Control<boolean> {
+	}
+
+	export interface UCheckBox extends UnControl<boolean> {
+	}
+
+	export interface Toggle extends Control<boolean> {
+		small?: boolean
+	}
+
+	export interface UToggle extends UnControl<boolean> {
+		small?: boolean
 	}
 
 

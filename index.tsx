@@ -16,10 +16,12 @@ import Col from "@ui/Layout/Col";
 import Row from "@ui/Layout/Row";
 import RadioButton from "@ui/RadioButton/RadioButton";
 import CheckBox from "@ui/CheckBox/CheckBox";
+import Toggle from "@ui/Toggle/Toggle";
+import UToggle from "@ui/Toggle/UToggle";
 
 export {
 	Text, Subtitle, Title,
 	S1, S2, S3, S4, S5, H1, H2, H3, H4, H5,
 	Box, Col, Row,
-	RadioButton, CheckBox
+	RadioButton, CheckBox, Toggle, UToggle
 };

@@ -1,0 +1,41 @@
+$round: 18px;
+$gap: 6px;
+.Toggle, .ToggleSmall {
+  cursor: pointer;
+  overflow: hidden;
+  transition: .2s;
+
+  .Thumb {
+
+  }
+}
+
+
+@mixin ToggleTemplate($width, $height, $thumbSize, $round, $gap) {
+  width: $width;
+  height: $height;
+  border-radius: $round;
+  .Thumb {
+    float: left;
+    width: $thumbSize;
+    height: $thumbSize;
+    margin-top: ($height - $thumbSize) / 2;
+    margin-left: $gap;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    transition: .2s;
+  }
+  &.ToggleActive {
+    .Thumb {
+      margin-left: $width - $gap - $thumbSize;
+    }
+  }
+}
+
+.Toggle {
+  @include ToggleTemplate(60px, 36px, 28px, 18px, 6px);
+}
+
+.ToggleSmall {
+  @include ToggleTemplate(45px, 28px, 20px, 18px, 4px);
+}
