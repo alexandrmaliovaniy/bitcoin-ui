@@ -4,7 +4,7 @@ import styles from "./CheckBox.module.scss";
 
 const RadioButton = ({ value, onMutation, gap = 10, children, ...props }: IUI.CheckBox) => {
 	return (
-		<Row gap={gap} className={styles.Box} onClick={onMutation} {...props}>
+		<Row gap={gap} className={styles.Box} onClick={() => onMutation && onMutation(null)} {...props}>
 			<Col className={styles.Button} justify={"center"} align={"center"}>
 				<Col className={value && styles.Check || ""}/>
 			</Col>

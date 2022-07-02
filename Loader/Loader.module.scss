@@ -1,0 +1,51 @@
+.Loader {
+  animation: linear rotate infinite;
+
+  .Circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    .Gap {
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      border-radius: 50%;
+
+      .Dot {
+        content: " ";
+        width: 4px;
+        height: 4px;
+        background: #000;
+        margin-left: 50%;
+        margin-top: 100%;
+        transform: translate(-30%, 0);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.big {
+  width: 60px;
+  height: 60px;
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+}
+
+.small {
+  width: 30px;
+  height: 30px;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

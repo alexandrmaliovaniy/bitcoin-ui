@@ -1,11 +1,26 @@
-import { CSSProperties, HTMLAttributes, ReactElement } from "react";
+import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from "react";
 import { Property } from "csstype";
 
 export namespace IUI {
 
 	export type Color = string | undefined;
 
-	export interface HOC {
+	export type Size = "big" | "medium" | "small";
+
+	export type IconName = "ArrowDown"
+		| "ArrowLeft" | "ArrowRight" | "ArrowUp"
+		| "DirectArrowDown" | "DirectArrowUp";
+	export type IconSize = Size;
+	export type ArrowSize = Size;
+	export type TagSize = Size;
+	export type LoaderSize = Size;
+	export type PaginationDotSize = Size;
+
+	interface Wrapper {
+		children: ReactNode
+	}
+
+	interface HOC {
 		children?: ReactElement
 	}
 
@@ -31,9 +46,30 @@ export namespace IUI {
 		fontWeight?: number
 	}
 
+
+	export interface Icon {
+		name: IconName
+		size?: IconSize
+		bold?: boolean
+		color?: Property.Color
+	}
+
+	export interface Arrow {
+		incoming?: boolean
+		size?: ArrowSize
+	}
+
+	export interface Loader {
+		size?: LoaderSize
+		speed?: number
+	}
+
+
 	interface Container extends HTMLAttributes<HTMLDivElement> {
 		align?: Property.AlignItems
 		justify?: Property.JustifyContent
+		background?: Property.Color
+		inline?: boolean
 		wide?: boolean
 		width?: Property.Width
 		height?: Property.Height
@@ -55,15 +91,40 @@ export namespace IUI {
 	export interface Row extends DirectedBox {
 	}
 
+	export interface Tag extends Row {
+		outlined?: boolean
+		size?: TagSize
+	}
 
 	interface Control<T> extends DirectedBox {
 		value: T | null
-		onMutation?: () => void
+		onMutation?: (value: T | null) => void
 	}
 
 	interface UnControl<T> extends DirectedBox {
 		value: T | null
-		onMutation?: (value: T) => void
+		onMutation?: (value: T) => Promise<boolean>
+	}
+
+	export interface PaginationDot extends Control<boolean> {
+		size?: PaginationDotSize
+	}
+
+	export interface Pagination extends Control<number> {
+		count: number
+		size?: PaginationDotSize
+		disabled?: boolean
+	}
+
+	export interface InlineTabs extends Control<number>, Row {
+		tabs: string[]
+		size?: TagSize
+		disabled?: boolean
+	}
+
+	export interface UInlineTabs extends Control<number>, Row {
+		tabs: string[]
+		size?: TagSize
 	}
 
 	export interface RadioButton extends Control<boolean> {
@@ -80,11 +141,11 @@ export namespace IUI {
 
 	export interface Toggle extends Control<boolean> {
 		small?: boolean
+		disabled?: boolean
 	}
 
 	export interface UToggle extends UnControl<boolean> {
 		small?: boolean
 	}
-
 
 }

@@ -5,6 +5,9 @@ const Box = (
 		children,
 		direction = "row",
 		style,
+		inline,
+		color,
+		background,
 		wide = false,
 		align,
 		justify,
@@ -19,13 +22,15 @@ const Box = (
 	return (
 		<div
 			style={{
-				display: "flex",
+				display: inline ? "inline-flex" : "flex",
 				flexDirection: direction,
 				justifyContent: isCol ? align : justify,
 				alignItems: isCol ? justify : align,
 				width: wide ? "100%" : width,
-				height: height,
-				gap: gap,
+				height,
+				gap,
+				color,
+				background,
 				...style
 			}}
 			{...props}

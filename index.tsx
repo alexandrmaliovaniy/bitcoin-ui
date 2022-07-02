@@ -18,10 +18,19 @@ import RadioButton from "@ui/RadioButton/RadioButton";
 import CheckBox from "@ui/CheckBox/CheckBox";
 import Toggle from "@ui/Toggle/Toggle";
 import UToggle from "@ui/Toggle/UToggle";
+import Icon from "./Icon/Icon";
+import Arrow from "./Arrow/Arrow";
+import Tag from "./Tag/Tag";
+import InlineTabs from "./InlineTabs/InlineTabs";
+import UInlineTabs from "./InlineTabs/UInlineTabs";
+import Loader from "./Loader/Loader";
+import PaginationDot from "./PaginationDot/PaginationDot";
+import Pagination from "@ui/Pagination/Pagination";
 
 export {
 	Text, Subtitle, Title,
 	S1, S2, S3, S4, S5, H1, H2, H3, H4, H5,
 	Box, Col, Row,
-	RadioButton, CheckBox, Toggle, UToggle
+	RadioButton, CheckBox, Toggle, UToggle, Icon, Arrow, Tag, InlineTabs, UInlineTabs,
+	Loader, PaginationDot, Pagination
 };

@@ -1,13 +1,15 @@
 import { IUI } from "@ui/Interface";
 import styles from "./Toggle.module.scss";
 import { useTheme } from "@hooks/Theme/ThemeHook";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import { Row } from "@ui/index";
 
 const Toggle = (
 	{
 		value, onMutation = () => {
 	},
-		small
+		small,
+		disabled
 	}: IUI.Toggle) => {
 	const toggleRef = useRef<HTMLDivElement>(null);
 	const { neutral, color } = useTheme();
@@ -16,11 +18,12 @@ const Toggle = (
 		if (!toggleRef.current) return;
 		if (value) return toggleRef.current.classList.add(styles.ToggleActive);
 		toggleRef.current.classList.remove(styles.ToggleActive);
-	}, [value, toggleRef]);
+	}, [value, disabled]);
 
 
 	const thumbClassName = `
 		${small ? styles.ToggleSmall : styles.Toggle}
+		${disabled ? styles.ToggleDisabled : null}
 	`;
 
 	const toggleColor = value ? color("orange") : neutral("neutral4");
@@ -28,12 +31,12 @@ const Toggle = (
 	return (
 		<div className={thumbClassName} style={{
 			background: toggleColor
-		}} onClick={() => onMutation()} ref={toggleRef}>
-			<div className={styles.Thumb} style={{
-				background: neutral("white")
-			}}>
-
-			</div>
+		}} onClick={() => !disabled && onMutation(null)} ref={toggleRef}>
+			<Row className={styles.DisableWrapper}>
+				<div className={styles.Thumb} style={{
+					background: neutral("white")
+				}}/>
+			</Row>
 		</div>
 	);
 };

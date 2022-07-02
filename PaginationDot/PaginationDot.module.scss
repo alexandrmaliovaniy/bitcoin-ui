@@ -1,0 +1,19 @@
+.big, .small, .medium {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.big {
+  width: 16px;
+  height: 16px;
+}
+
+.medium {
+  width: 10px;
+  height: 10px;
+}
+
+.small {
+  width: 6px;
+  height: 6px;
+}
