@@ -1,0 +1,48 @@
+.Button {
+  border-radius: 5px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+
+.big {
+  height: 60px;
+  font-size: 21px;
+  padding: 0px 20px;
+}
+
+
+.medium {
+  height: 46px;
+  font-size: 18px;
+  padding: 0px 20px;
+}
+
+.small {
+  height: 30px;
+  font-size: 15px;
+  padding: 0px 15px;
+}
+
+.empty {
+  padding: 0;
+  justify-content: center;
+
+  &.big {
+    width: 60px;
+  }
+
+  &.medium {
+    width: 46px;
+  }
+
+  &.small {
+    width: 30px;
+  }
+}

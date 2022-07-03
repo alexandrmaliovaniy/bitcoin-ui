@@ -7,7 +7,8 @@ export namespace IUI {
 
 	export type Size = "big" | "medium" | "small";
 
-	export type IconName = "ArrowDown"
+	export type ButtonType = "filled" | "outlined" | "text";
+	export type IconName = "ArrowDown" | "Cross"
 		| "ArrowLeft" | "ArrowRight" | "ArrowUp"
 		| "DirectArrowDown" | "DirectArrowUp";
 	export type IconSize = Size;
@@ -15,6 +16,7 @@ export namespace IUI {
 	export type TagSize = Size;
 	export type LoaderSize = Size;
 	export type PaginationDotSize = Size;
+	export type ButtonSize = Size;
 
 	interface Wrapper {
 		children: ReactNode
@@ -94,6 +96,15 @@ export namespace IUI {
 	export interface Tag extends Row {
 		outlined?: boolean
 		size?: TagSize
+	}
+
+	export interface Button extends Row {
+		size?: "big" | "medium" | "small"
+		type?: ButtonType
+		disabled?: boolean
+		cancel?: boolean
+		back?: boolean
+		forward?: boolean
 	}
 
 	interface Control<T> extends DirectedBox {

@@ -1,5 +1,5 @@
 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="10.0503" y="10.4038" width="0.5" height="13.5" rx="0.25" transform="rotate(-45 10.0503 10.4038)"
-          fill="black" stroke="inherit" stroke-width="0.5"/>
-    <rect x="9.6967" y="19.5962" width="14" height="1" rx="0.5" transform="rotate(-45 9.6967 19.5962)" fill="black"/>
+          fill="inherit" stroke="inherit" stroke-width="0.5"/>
+    <rect x="9.6967" y="19.5962" width="14" height="1" rx="0.5" transform="rotate(-45 9.6967 19.5962)" fill="inherit"/>
 </svg>

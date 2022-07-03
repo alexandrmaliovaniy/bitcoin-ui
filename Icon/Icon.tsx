@@ -7,7 +7,8 @@ const Icon = ({ name, size = "medium", bold = false, color }: IUI.Icon) => {
 	const Svg = Icons[name] && Icons[name][bold ? "bold" : "thin"] && Icons[name][bold ? "bold" : "thin"][size];
 	return (
 		<Row style={{
-			stroke: color || "#000"
+			stroke: color || "#000",
+			fill: color || "#000"
 		}}>
 			<Svg/>
 		</Row>

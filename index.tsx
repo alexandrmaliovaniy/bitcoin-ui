@@ -26,11 +26,12 @@ import UInlineTabs from "./InlineTabs/UInlineTabs";
 import Loader from "./Loader/Loader";
 import PaginationDot from "./PaginationDot/PaginationDot";
 import Pagination from "@ui/Pagination/Pagination";
+import Button from "@ui/Button/Button";
 
 export {
 	Text, Subtitle, Title,
 	S1, S2, S3, S4, S5, H1, H2, H3, H4, H5,
 	Box, Col, Row,
 	RadioButton, CheckBox, Toggle, UToggle, Icon, Arrow, Tag, InlineTabs, UInlineTabs,
-	Loader, PaginationDot, Pagination
+	Loader, PaginationDot, Pagination, Button
 };
