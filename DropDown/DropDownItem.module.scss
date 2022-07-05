@@ -1,0 +1,18 @@
+.Item {
+  height: 35px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  cursor: pointer;
+  flex-shrink: 0;
+  flex-grow: 0;
+  font-size: 15px;
+  padding: 0px 10px;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.Small {
+  font-size: 13px;
+}

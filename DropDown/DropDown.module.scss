@@ -1,0 +1,37 @@
+.DropDown {
+  padding: 0px 10px;
+  flex-basis: 56px;
+  cursor: pointer;
+  font-size: 15px;
+
+  .Select {
+    flex-basis: 56px;
+    flex-shrink: 0;
+  }
+
+  .List {
+    position: absolute;
+    left: 0;
+    top: 90px;
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+  }
+
+}
+
+.Small {
+  flex-basis: 30px;
+  font-size: 13px;
+
+  .Select {
+    flex-basis: 30px;
+  }
+}
+
+.Flip {
+  transform: rotate(180deg);
+}

@@ -1,4 +1,4 @@
-import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from "react";
+import React, { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from "react";
 import { Property } from "csstype";
 
 export namespace IUI {
@@ -8,6 +8,7 @@ export namespace IUI {
 	export type Size = "big" | "medium" | "small";
 
 	export type ButtonType = "filled" | "outlined" | "text";
+	export type ImageName = "OrangeBottle";
 	export type IconName = "ArrowDown" | "Cross"
 		| "ArrowLeft" | "ArrowRight" | "ArrowUp"
 		| "DirectArrowDown" | "DirectArrowUp";
@@ -48,8 +49,15 @@ export namespace IUI {
 		fontWeight?: number
 	}
 
+	interface Draw extends Row {
+		name: string
+	}
 
-	export interface Icon {
+	export interface Image extends Draw {
+		name: ImageName
+	}
+
+	export interface Icon extends Draw {
 		name: IconName
 		size?: IconSize
 		bold?: boolean
@@ -73,8 +81,9 @@ export namespace IUI {
 		background?: Property.Color
 		inline?: boolean
 		wide?: boolean
-		width?: Property.Width
-		height?: Property.Height
+		hide?: boolean
+		width?: Property.Width<any>
+		height?: Property.Height<any>
 		gap?: Property.Gap<string | number>
 		color?: Property.Color
 	}
@@ -106,6 +115,58 @@ export namespace IUI {
 		back?: boolean
 		forward?: boolean
 	}
+
+	export interface UButton extends Button {
+		onMutation: () => Promise<boolean>
+	}
+
+	export interface BaseInput extends Col {
+		label?: string
+		focused?: boolean
+		disabled?: boolean
+		error?: string
+		prepend?: ReactElement
+		append?: ReactElement
+	}
+
+	export interface AmountLabel {
+		amount?: string
+		color?: Property.Color
+	}
+
+	export interface ListItemWrapper extends Row {
+		image?: ReactElement
+		caption?: ReactElement
+		subCaption?: ReactElement
+		arrow?: boolean
+	}
+
+	export interface ListItem {
+		imageName?: ImageName
+		caption?: ListItemCaption
+		subCaption?: ListItemSubCaption
+		arrow?: boolean
+	}
+
+	interface ListItemCaptionTitle extends Col {
+		title?: string
+		subTitle?: string
+
+	}
+
+	export interface ListItemCaption extends ListItemCaptionTitle, AmountLabel {
+	}
+
+	export interface ListItemSubCaption extends ListItemCaptionTitle {
+		small?: boolean
+	}
+
+
+	export interface ListItemBaseCaption extends ListItemCaption, ListItemSubCaption {
+
+
+	}
+
 
 	interface Control<T> extends DirectedBox {
 		value: T | null
@@ -159,4 +220,42 @@ export namespace IUI {
 		small?: boolean
 	}
 
+	export interface DropDownItem<T> extends Row {
+		label: string
+		value: T
+		active?: boolean
+		small?: boolean
+	}
+
+	interface DropDownBase<T> extends Control<DropDownItem<T> | null> {
+		small?: boolean
+	}
+
+	export interface DropDown extends DropDownBase<any> {
+		list: DropDownItem<any>[]
+	}
+
+	export interface UDropDown extends DropDownBase<any> {
+		list: DropDownItem<any>[]
+	}
+
+	export interface UCountryCodeSelect extends DropDownBase<string> {
+	}
+
+	interface EnterInput<T> extends BaseInput, Control<T> {
+		placeholder?: string
+		onFocus?: () => void
+		onBlur?: () => void
+
+	}
+
+	export interface TextInput extends EnterInput<string> {
+	}
+
+	export interface NumberInput extends EnterInput<string> {
+	}
+
+	export interface UPhoneInput extends EnterInput<string> {
+
+	}
 }

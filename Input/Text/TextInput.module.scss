@@ -1,0 +1,14 @@
+.TextInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  user-select: text;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-overflow: ellipsis;
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
