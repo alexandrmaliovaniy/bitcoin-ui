@@ -28,7 +28,7 @@ export namespace IUI {
 	}
 
 	export interface Typography {
-
+		textAlign?: Property.TextAlign
 	}
 
 	export interface TypographyContainer extends Typography, HTMLAttributes<HTMLDivElement> {
@@ -134,27 +134,46 @@ export namespace IUI {
 		color?: Property.Color
 	}
 
+	export interface ProgressBar {
+		progress?: number
+		color?: Property.Color
+	}
+
 	export interface ListItemWrapper extends Row {
-		image?: ReactElement
+		display?: ReactElement
 		caption?: ReactElement
 		subCaption?: ReactElement
 		arrow?: boolean
 	}
 
-	export interface ListItem {
+	interface ListItemImageProps {
 		imageName?: ImageName
+	}
+
+	interface ListItemCaptionsProps {
 		caption?: ListItemCaption
+	}
+
+	interface ListItemSubCaptionProps {
 		subCaption?: ListItemSubCaption
+	}
+
+	interface ListItemArrowProps {
 		arrow?: boolean
+	}
+
+
+	export interface ListItem extends ListItemImageProps, ListItemCaptionsProps, ListItemSubCaptionProps, ListItemArrowProps, Row {
 	}
 
 	interface ListItemCaptionTitle extends Col {
 		title?: string
-		subTitle?: string
+		subTitle?: string,
+		textAlign?: Property.TextAlign
 
 	}
 
-	export interface ListItemCaption extends ListItemCaptionTitle, AmountLabel {
+	export interface ListItemCaption extends ListItemCaptionTitle, AmountLabel, ProgressBar {
 	}
 
 	export interface ListItemSubCaption extends ListItemCaptionTitle {
@@ -219,6 +238,15 @@ export namespace IUI {
 	export interface UToggle extends UnControl<boolean> {
 		small?: boolean
 	}
+
+	export interface ListItemRadio extends Control<boolean>, ListItemCaptionsProps, ListItemSubCaptionProps, ListItemArrowProps {
+
+	}
+
+	export interface ListItemToggle extends Control<boolean>, ListItemImageProps, ListItemCaptionsProps, ListItemArrowProps {
+		small?: boolean
+	}
+
 
 	export interface DropDownItem<T> extends Row {
 		label: string

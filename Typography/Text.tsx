@@ -1,6 +1,6 @@
 import { IUI } from "@ui/Interface";
 
-const Text = ({ children, fontSize, fontWeight, color, style, ...props }: IUI.Text) => {
+const Text = ({ children, fontSize, fontWeight, color, textAlign, style, ...props }: IUI.Text) => {
 	return (
 		<div
 			style={{
@@ -8,6 +8,7 @@ const Text = ({ children, fontSize, fontWeight, color, style, ...props }: IUI.Te
 				color: color,
 				lineHeight: "140%",
 				fontWeight: fontWeight,
+				textAlign: textAlign,
 				...style
 			}}
 			{...props}

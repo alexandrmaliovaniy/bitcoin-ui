@@ -1,20 +1,19 @@
 import ListItemWrapper from "@ui/ListItem/ListItemWrapper";
-import { IUI } from "@ui/Interface";
+import { RadioButton, Toggle } from "@ui/index";
 import ListItemCaption from "@ui/ListItem/Caption/ListItemCaption";
-import { Icon } from "@ui/index";
 import ListItemSubCaption from "@ui/ListItem/Caption/ListItemSubCaption";
+import { IUI } from "@ui/Interface";
 import Image from "@ui/Image/Image";
 
-const ListItem = ({ imageName, caption, subCaption, arrow, ...props }: IUI.ListItem) => {
+const ListItemToggle = ({ imageName, value, onMutation, small, caption, arrow, ...params }: IUI.ListItemToggle) => {
 	return (
 		<ListItemWrapper
 			display={imageName && <Image name={imageName}/>}
 			caption={caption && <ListItemCaption {...caption} />}
-			subCaption={subCaption && <ListItemSubCaption {...subCaption} />}
+			subCaption={<Toggle value={value} small={small} onMutation={onMutation}/>}
 			arrow={arrow}
-			{...props}
+			{...params}
 		/>
 	);
 };
-
-export default ListItem;
+export default ListItemToggle;

@@ -1,15 +1,11 @@
-import TextInput from "@ui/Input/Text/TextInput";
 import NumberInput from "@ui/Input/Number/NumberInput";
 import { IUI } from "@ui/Interface";
 import { useEffect, useState } from "react";
 import { UCountryCodeSelect } from "@ui/index";
-import { useTheme } from "@hooks/Theme/ThemeHook";
 
 const UPhoneInput = ({ value: defaultValue, onMutation, ...props }: IUI.UPhoneInput) => {
 	const [value, setValue] = useState<string>(defaultValue || "");
 	const [countryCode, setCountryCode] = useState<string>("");
-	const [error, setError] = useState("");
-	const { neutral } = useTheme();
 	const OnCountryCodeMutate = (v: IUI.DropDownItem<string> | null) => {
 		setCountryCode(v?.value || "");
 	};
@@ -18,9 +14,6 @@ const UPhoneInput = ({ value: defaultValue, onMutation, ...props }: IUI.UPhoneIn
 	};
 
 	useEffect(() => {
-		const number = countryCode + value;
-		if (!(number.match(/^(\+\d{1,3}[- ]?)?\d{10}$/) && !(number.match(/0{5,}/)))) return setError("Invalid Number!");
-		setError("");
 		onMutation && onMutation(countryCode + value);
 	}, [value, countryCode]);
 
@@ -31,7 +24,7 @@ const UPhoneInput = ({ value: defaultValue, onMutation, ...props }: IUI.UPhoneIn
 	/>;
 
 	return (
-		<NumberInput {...props} prepend={Drop} error={error} onMutation={OnMutation} value={value || ""} style={{
+		<NumberInput {...props} prepend={Drop} onMutation={OnMutation} value={value || ""} style={{
 			paddingLeft: 10
 		}}/>
 	);

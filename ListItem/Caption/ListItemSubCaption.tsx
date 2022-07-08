@@ -3,7 +3,7 @@ import { IUI } from "@ui/Interface";
 
 const ListItemSubCaption = (props: IUI.ListItemSubCaption) => {
 	return (
-		<ListItemBaseCaption {...props} amount={""} justify={"end"}/>
+		<ListItemBaseCaption {...props} amount={""} justify={"end"} textAlign={"right"}/>
 	);
 };
 

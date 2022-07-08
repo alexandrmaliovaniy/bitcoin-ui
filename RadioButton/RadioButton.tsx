@@ -8,7 +8,7 @@ const RadioButton = ({ value, onMutation, gap = 10, children, ...props }: IUI.Ra
 			<Col className={styles.Button} justify={"center"} align={"center"}>
 				<Col className={value && styles.Check || ""}/>
 			</Col>
-			<Col>
+			<Col hide={!children}>
 				<S4>
 					{children}
 				</S4>
